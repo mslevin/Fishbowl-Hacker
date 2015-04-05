@@ -49,6 +49,9 @@ curl -H "Origin: http://schedule.lib.calpoly.edu" -H "Referer: http://schedule.l
 102908810
 102908826
 
+curl -H "Origin: http://schedule.lib.calpoly.edu" -H "Referer: http://schedule.lib.calpoly.edu/rooms.php?i=2015" http://schedule.lib.calpoly.edu/process_roombookings.php?m=booking_full --data "sid=102908809&tc=done&gid=2015&name=Test&email=testing%40test.com&nick=Study&qcount=0&fid=0"
+
+
 102908807
 216K 8:00AM Monday April 6
 
