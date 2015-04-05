@@ -4,7 +4,16 @@ import requests
 from BeautifulSoup import BeautifulSoup
 from collections import defaultdict
 
-date = raw_input("Enter a date (format: YYYY-MM-DD):")
+print "What do you want to do?"
+print "1) Manually select up to 3 hours"
+print "2) Reserve as many fishbowls as possible in one day"
+action = raw_input()
+
+name = raw_input("Your name: ")
+email = raw_input("Cal Poly username: ")
+group = raw_input("Group name: ")
+
+date = raw_input("Enter a date (format: YYYY-MM-DD): ")
 print "Available fishbowl times for: " + date
 
 r = requests.get('http://schedule.lib.calpoly.edu/process_roombookings.php?m=calscroll&gid=2015&date=' + date)
@@ -13,10 +22,12 @@ html = r.text
 parsed = BeautifulSoup(r.text)
 
 rooms = defaultdict(list)
+id = {}
 
 for a in parsed.findAll('a', href=True):
     room = a['onclick'] .split("'")[1]
     time = a['onclick'] .split("'")[3].split(" - ")[0]
+    id[room, time] = a['id']
     rooms[room].append(time);
 
 count = 0
@@ -37,3 +48,16 @@ for i in range(0, 16):
         else:
             print "------\t",
     print "\n"
+
+roomSel = raw_input("Enter a room number: ")
+timeSel = raw_input("Enter times: ")
+
+timeSel = timeSel.split(" ")
+timeIDs = ""
+#for time in timeSel:
+#    timeIDs = "|".join(id[roomSel, time])
+
+timeIDs = "|".join(id[roomSel, time] for time in timeSel)
+
+
+print "Done. Check your email to confirm the reservations."
