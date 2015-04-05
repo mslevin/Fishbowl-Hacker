@@ -1,0 +1,90 @@
+curl -H "Origin: http://schedule.lib.calpoly.edu" -H "Referer: http://schedule.lib.calpoly.edu/rooms.php?i=2015" http://schedule.lib.calpoly.edu/process_roombookings.php?m=booking_full --data "sid=102915597&tc=done&gid=2015&name=Michael&email=mslevin%40calpoly.edu&nick=Study&qcount=0&fid=0"
+
+sid is what defines room, date, and time. same for multiple different requests for the same room.
+
+sid = 102915596
+216K 4:00pm Sunday April 5, 2015
+Time slot 17
+Row 1, Column 17
+
+sid = 102915597
+216K 5:00pm Sunday April 5, 2015
+
+sid = 102915608
+216L 4:00pm Sunday April 5, 2015
+
+102915596
+102915608
+Difference: 12
+
+sid = 102915599
+216K 7:00pm Sunday April 5, 2015
+
+sid = 102915611
+216L 7:00pm Sunday April 5, 2015
+
+102915599
+102915611
+Difference: 12
+
+** Difference in SIDs is the same when selecting two different rooms at the same time
+
+sid = 102915612
+216L 8:00pm Sunday April 5, 2015
+
+
+sid = 102908807
+216K 8:00am Monday April 6, 2015
+sid = 102908808
+218K 9:00am Monday April 6, 2015
+
+sid = 102908806
+216S 10:00pm Monday March 30, 2015
+
+sid=102908806&tc=done&gid=2015&name=Michael&email=mslevin%40calpoly.edu&nick=Study&qcount=0&fid=0
+curl -H "Origin: http://schedule.lib.calpoly.edu" -H "Referer: http://schedule.lib.calpoly.edu/rooms.php?i=2015" http://schedule.lib.calpoly.edu/process_roombookings.php?m=booking_full --data "sid=102908806&tc=done&gid=2015&name=Michael&email=mslevin%40calpoly.edu&nick=Study&qcount=0&fid=0"
+
+curl -H "Origin: http://schedule.lib.calpoly.edu" -H "Referer: http://schedule.lib.calpoly.edu/rooms.php?i=2015" http://schedule.lib.calpoly.edu/process_roombookings.php?m=booking_full --data "sid=102908807&tc=done&gid=2015&name=Test&email=testing%40test.com&nick=Study&qcount=0&fid=0"
+
+102908810
+102908826
+
+102908807
+216K 8:00AM Monday April 6
+
+102910127
+216K 8:00AM Tuesday April 7
+
+102911447
+216K 8:00AM Wednesday April 8
+
+102912767
+216K 8:00AM Thursday April 9
+
+102909807
+216M 6:00PM Monday June 1
+
+
+
+102908807
+102910127
+Difference: 1320 (same between all days)
+8 rooms
+165 each?
+16 possible reservation spots
+All start with 1029
+
+0 88 07
+1 01 27
+1 14 47
+1 27 67
+
+curl -H "Origin: http://schedule.lib.calpoly.edu" -H "Referer: http://schedule.lib.calpoly.edu/rooms.php?i=2015" http://schedule.lib.calpoly.edu/process_roombookings.php?m=booking_full --data "sid=102909807&tc=done&gid=2015&name=Michael&email=mslevin%40calpoly.edu&nick=Study&qcount=0&fid=0"
+
+
+To get list of available fishbowls:
+curl 'http://schedule.lib.calpoly.edu/process_roombookings.php?m=calscroll&gid=2015&date=2015-04-06'
+
+Just change the date on the end
+
+curl -H "Origin: http://schedule.lib.calpoly.edu" -H "Referer: http://schedule.lib.calpoly.edu/rooms.php?i=2015" http://schedule.lib.calpoly.edu/process_roombookings.php?m=booking_full --data "sid=102909807&tc=done&gid=2015&name=Michael&email=mslevin%40calpoly.edu&nick=Study&qcount=0&fid=0"
