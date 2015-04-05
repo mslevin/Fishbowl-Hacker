@@ -88,3 +88,6 @@ curl 'http://schedule.lib.calpoly.edu/process_roombookings.php?m=calscroll&gid=2
 Just change the date on the end
 
 curl -H "Origin: http://schedule.lib.calpoly.edu" -H "Referer: http://schedule.lib.calpoly.edu/rooms.php?i=2015" http://schedule.lib.calpoly.edu/process_roombookings.php?m=booking_full --data "sid=102909807&tc=done&gid=2015&name=Michael&email=mslevin%40calpoly.edu&nick=Study&qcount=0&fid=0"
+
+
+curl -H "Origin: http://schedule.lib.calpoly.edu" -H "Referer: http://schedule.lib.calpoly.edu/rooms.php?i=2015" http://schedule.lib.calpoly.edu/process_roombookings.php?m=booking_full&sid=102909807&tc=done&gid=2015&name=Michael&email=mslevin%40calpoly.edu&nick=Study&qcount=0&fid=0
