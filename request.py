@@ -13,8 +13,11 @@ name = raw_input("Your name: ")
 email = raw_input("Cal Poly username: ")
 group = raw_input("Group name: ")
 
-date = raw_input("Enter a date (format: YYYY-MM-DD): ")
-print "Available fishbowl times for: " + date
+date = raw_input("Enter a date (format: MM-DD): ")
+date = '2015-' + date
+print "\nAvailable fishbowl times for: " + date
+
+
 
 r = requests.get('http://schedule.lib.calpoly.edu/process_roombookings.php?m=calscroll&gid=2015&date=' + date)
 
@@ -57,20 +60,10 @@ timeIDs = ""
 
 timeIDs = "|".join(id[roomSel, time] for time in timeSel)
 
-print timeIDs
 headers = {'Origin':'http://schedule.lib.calpoly.edu', 'Referer':'http://schedule.lib.calpoly.edu/rooms.php?i=2015'}
 payload = {'sid':str(timeIDs), 'tc':'done', 'gid':'2015', 'name':name, 'email':email+'@calpoly.edu', 'nick':group, 'qcount':'0', 'fid':'0'}
 url = 'http://schedule.lib.calpoly.edu/process_roombookings.php?m=booking_full'
 res = requests.post(url, headers=headers, data=payload)
-
-print url
-
-print headers
-print payload
-
-print res.status_code
-print res.headers
-
 
 print res.text
 print "Done. Check your email to confirm the reservations."
