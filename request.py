@@ -36,14 +36,4 @@ for i in range(0, 16):
             print times[i] + "\t",
         else:
             print "------\t",
-
-
-        #try:
-        #    if rooms[room][i] == times[i]:
-        #        print rooms[room][i] + "\t",
-        #    else:
-        #        print "------\t",
-        #except IndexError:
-        #        print "------\t",
-
     print "\n"
